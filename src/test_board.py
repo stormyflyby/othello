@@ -423,6 +423,14 @@ class TestBoard(unittest.TestCase):
         with self.assertRaises(BoardOutOfBoundsError):
             board.play_piece(6, 983, PieceColor.BLACK)
 
+    def test_board_play_piece_on_piece(self):
+        board = starting_board()
+        with self.assertRaises(ValueError):
+            board.play_piece(3, 3, PieceColor.BLACK)
+
+        with self.assertRaises(ValueError):
+            board.play_piece(4, 3, PieceColor.WHITE)
+
 
 if __name__ == "__main__":
     unittest.main()
